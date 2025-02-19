@@ -10,6 +10,7 @@ import { SkillsComponent } from './characters/skills/skills.component';
 import { WeaponsComponent } from './characters/equipment/weapons/weapons.component';
 import { ItemsComponent } from './characters/equipment/items/items.component';
 import { ArmorComponent } from './characters/equipment/armor/armor.component';
+import { EquipmentComponent } from './characters/equipment/equipment.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ArmorComponent } from './characters/equipment/armor/armor.component';
     SkillsComponent,
     WeaponsComponent,
     ItemsComponent,
-    ArmorComponent
+    ArmorComponent,
+    EquipmentComponent
   ],
   imports: [
     BrowserModule,
