@@ -1,21 +1,26 @@
 <div style="display: flex; flex-grow: grow; flex-direction: row">
-<div class="container">
-    <div class="form-group">
-        <label for="characterNamefield" class="row">Charactername</label>
-        <input type=text [(ngModel)]="charName" id="characterNameField" disabled="true" class="row col-sm">
-    </div>
-    <div class="form-group col-sm">
-        <div class="row" *ngFor="let stat of stats | keyvalue">
-            <label for="{{stat.key}}Field">{{stat.key}}</label>
-            <input type=number class="col-md-2" id="{{stat.key}}Field" value="{{stat.value}}">
+    <div class="container col-md-1">
+        <div class="form-group">
+            <label for="characterNamefield" class="row">Charactername</label>
+            <input type=text [(ngModel)]="charName" id="characterNameField" disabled="true" class="row col-md-16">
+        </div>
+        <div class="form-group col-sm">
+            <div class="row" *ngFor="let stat of stats | keyvalue">
+                <label for="{{stat.key}}Field">{{stat.key}}</label>
+                <input type=number class="col-md-12" id="{{stat.key}}Field" value="{{stat.value}}">
+            </div>
         </div>
     </div>
+    <div class="container">
+        <app-skills
+            [charStats]="stats"
+            [charSkillPoints]="skillPoints"
+            class=""
+        ></app-skills>
+    </div>
 </div>
-<div class="container">
-<app-skills
-    [charStats]="stats"
-    [charSkillPoints]="skillPoints"
-    class=""
-></app-skills></div></div>
+<div style="display: flex; flex-grow: grow; flex-direction: row">
+
+</div>
 
 <button class="btn-xs btn-danger btn row mt-sm-2">Edit</button>

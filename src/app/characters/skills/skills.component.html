@@ -1,15 +1,35 @@
 <div class="container">
     <div class="row">
-        <label class="skillHeader col-md-3 darkLabel">Skill Name</label>
-        <label class="skillHeader col-md-3 darkLabel">Attribute</label>
-        <label class="skillHeader col-md-3 darkLabel">Points</label>
-        <label class="skillHeader col-md-3 darkLabel">Base</label>
+        <div class="col">
+            <div class="row">
+                <label class="skillHeader col-md-3 darkLabel">Skill Name</label>
+                <label class="skillHeader col-md-3 darkLabel">Attribute</label>
+                <label class="skillHeader col-md-3 darkLabel">Points</label>
+                <label class="skillHeader col-md-3 darkLabel">Base</label>
+            </div>
+            <div class="row" *ngFor="let skill of skillAttributes | keyvalue | slice:0:skillAttributes.size/2">
+                <label class="skillLabel col-md-3">{{skill.key}} ({{skill.value}})</label>
+                <input type=number class="col-md-3 generalInputBox" [value]="skillAttributes.get(skill.key)" disabled="true">
+                <input type=number class="col-md-3 generalInputBox" [value]="skillLVLPoints.get(skill.key)" disabled="true">
+                <input type=number class="col-md-3 skillBase generalInputBox" [value]="skillBasePoints.get(skill.key)" disabled="true">
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <label class="skillHeader col-md-3 darkLabel">Skill Name</label>
+                <label class="skillHeader col-md-3 darkLabel">Attribute</label>
+                <label class="skillHeader col-md-3 darkLabel">Points</label>
+                <label class="skillHeader col-md-3 darkLabel">Base</label>
+            </div>
+        
+            <div class="row" *ngFor="let skill of skillAttributes | keyvalue | slice:skillAttributes.size/2:skillAttributes.size">
+                <label class="skillLabel col-md-3">{{skill.key}} ({{skill.value}})</label>
+                <input type=number class="col-md-3 generalInputBox" [value]="skillAttributes.get(skill.key)" disabled="true">
+                <input type=number class="col-md-3 generalInputBox" [value]="skillLVLPoints.get(skill.key)" disabled="true">
+                <input type=number class="col-md-3 skillBase generalInputBox" [value]="skillBasePoints.get(skill.key)" disabled="true">
+            </div>
+        </div>
     </div>
-    <div class="row" *ngFor="let skill of skillAttributes | keyvalue">
-        <label class="skillLabel col-md-3">{{skill.key}} ({{skill.value}})</label>
-        <input type=number class="col-md-3 generalInputBox" [value]="skillAttributes.get(skill.key)" disabled="true">
-        <input type=number class="col-md-3 generalInputBox" [value]="skillLVLPoints.get(skill.key)" disabled="true">
-        <input type=number class="col-md-3 skillBase generalInputBox" [value]="skillBasePoints.get(skill.key)" disabled="true">
-    </div>
+    
 </div>
 
